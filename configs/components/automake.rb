@@ -43,7 +43,8 @@ component "automake" do |pkg, settings, platform|
 
   pkg.install do
     [
-      "PATH=#{settings[:prefix]}/bin:$$PATH #{platform[:make]} VERBOSE=1 -j$(shell expr $(shell #{platform[:num_cores]}) + 1) install"
+      "PATH=#{settings[:prefix]}/bin:$$PATH #{platform[:make]} VERBOSE=1 -j$(shell expr $(shell #{platform[:num_cores]}) + 1) install",
+      "rm -rf #{settings[:basedir]}/share/info"
     ]
   end
 

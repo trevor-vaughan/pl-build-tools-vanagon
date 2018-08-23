@@ -6,7 +6,10 @@ component "cmake" do |pkg, settings, platform|
     pkg.version "3.5.2"
     pkg.md5sum "701386a1b5ec95f8d1075ecf96383e02"
   end
-  pkg.url "#{settings[:buildsources_url]}/#{pkg.get_name}-#{pkg.get_version}.tar.gz"
+  #pkg.url "#{settings[:buildsources_url]}/#{pkg.get_name}-#{pkg.get_version}.tar.gz"
+
+  version_head = pkg.get_version.split('.')[0..1].join('.')
+  pkg.url "https://cmake.org/files/v#{version_head}/cmake-#{pkg.get_version}.tar.gz"
 
   if platform.name =~ /sles-12/
     pkg.apply_patch 'resources/patches/cmake/avoid-select-sles-12.patch'

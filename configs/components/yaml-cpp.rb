@@ -2,12 +2,15 @@ component "yaml-cpp" do |pkg, settings, platform|
   # Source-Related Metadata
   if platform.architecture =~ /arm/ || platform.name =~ /fedora-f24/
     pkg.version "0.5.3"
-    pkg.md5sum "9a60a3051c2ef01980c78a2d6be40ed9"
+    md5sum = "9a60a3051c2ef01980c78a2d6be40ed9"
+    pkg.md5sum md5sum
   else
     pkg.version "0.5.1"
-    pkg.md5sum "0fa47a5ed8fedefab766592785c85ee7"
+    md5sum = "0fa47a5ed8fedefab766592785c85ee7"
+    pkg.md5sum md5sum
   end
-  pkg.url "#{settings[:buildsources_url]}/#{pkg.get_name}-#{pkg.get_version}.tar.gz"
+  #pkg.url "#{settings[:buildsources_url]}/#{pkg.get_name}-#{pkg.get_version}.tar.gz"
+  pkg.url "https://src.fedoraproject.org/repo/pkgs/yaml-cpp/yaml-cpp-#{pkg.get_version}.tar.gz/#{md5sum}/yaml-cpp-#{pkg.get_version}.tar.gz"
 
   # Package Dependency Metadata
 

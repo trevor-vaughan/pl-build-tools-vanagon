@@ -2,7 +2,7 @@ component "openssl" do |pkg, settings, platform|
   pkg.version "1.0.2l"
   pkg.md5sum "f85123cd390e864dfbe517e7616e6566"
   pkg.url "https://openssl.org/source/openssl-#{pkg.get_version}.tar.gz"
-  pkg.mirror "#{settings[:buildsources_url]}/openssl-#{pkg.get_version}.tar.gz"
+  #pkg.mirror "#{settings[:buildsources_url]}/openssl-#{pkg.get_version}.tar.gz"
 
   if platform.is_windows?
     pkg.apply_patch 'resources/patches/openssl/openssl-1.0.0l-use-gcc-instead-of-makedepend.patch'
@@ -35,7 +35,8 @@ component "openssl" do |pkg, settings, platform|
     # --libdir ensures that we avoid the multilib (lib/ vs. lib64/) problem,
     # since configure uses the existence of a lib64 directory to determine
     # if it should install its own libs into a multilib dir. Yay OpenSSL!
-    "./Configure \
+    #"./Configure \
+    "./config \
       --prefix=#{prefix} \
       --libdir=lib \
       --openssldir=#{prefix}/ssl \
