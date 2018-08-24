@@ -5,11 +5,11 @@ component "gdbm" do |pkg, settings, platform|
   #pkg.url "#{settings[:buildsources_url]}/gdbm-#{pkg.get_version}.tar.gz"
   pkg.url "https://ftp.gnu.org/pub/gnu/gdbm/gdbm-#{pkg.get_version}.tar.gz"
 
-  pkg.apply_patch "resources/patches/gdbm/0001-Mingw-port-of-gdbm-1.10.patch"
-
   prefix = settings[:prefix]
   if platform.is_windows?
     arch = platform.architecture == "x64" ? "64" : "32"
+
+    pkg.apply_patch "resources/patches/gdbm/0001-Mingw-port-of-gdbm-1.10.patch"
 
     pkg.environment "PATH" => "C:/tools/mingw#{arch}/bin:$$PATH"
     pkg.environment "CYGWIN" => "nodosfilewarning winsymlinks:native"

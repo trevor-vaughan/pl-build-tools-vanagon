@@ -79,3 +79,5 @@ proj.directory proj.basedir
 # rewritten as
 # https://artifactory.delivery.puppetlabs.net/artifactory/generic/buildsources/openssl-1.0.0r.tar.gz
 #proj.register_rewrite_rule 'http', proj.buildsources_url
+
+proj.setting(:source_artifacts, true)
