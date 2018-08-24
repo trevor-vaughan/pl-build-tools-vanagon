@@ -1,6 +1,6 @@
 component "iconv" do |pkg, settings, platform|
-  pkg.version "1.14"
-  pkg.md5sum "e34509b1623cec449dfeb73d7ce9c6c6"
+  pkg.version "1.15"
+  pkg.md5sum "ace8b5f2db42f7b3b3057585e80d9808"
   pkg.url "http://ftp.gnu.org/gnu/lib#{pkg.get_name}/lib#{pkg.get_name}-#{pkg.get_version}.tar.gz"
 
   if platform.is_windows?
